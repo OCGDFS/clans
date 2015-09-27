@@ -16,7 +16,7 @@ class _Edit_Action extends \App\Controller {
         }
 		if($pk == 'clan_tag') {
 			$clan = new \Model\Clans_List($db);
-			$errors = $clan->checkClanTag($value);
+			$errors = $clan->checkClanTag($value, $this->getClanId($f3));
 			if(count($errors) > 0) {
 				$this->error(implode($errors, '; '));
 			}

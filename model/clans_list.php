@@ -39,7 +39,7 @@ class Clans_List extends \DB\SQL\Mapper {
 	return $errors;
   }
   
-  function checkClanTag($newClanTag) {
+  function checkClanTag($newClanTag, $myClanId = -1) {
 	$errors = array();
 
 	if(strlen($newClanTag) > 3) {
@@ -55,7 +55,8 @@ class Clans_List extends \DB\SQL\Mapper {
 	}
 
 	// look for duplicate clan name
-	$this->load( array( 'clan_tag = ?', $newClanTag));
+    $where = array( 'clan_tag = ? && clan_id != ?', $newClanTag, $myClanId);
+	$this->load( $where );
 
 	if( !$this->dry() ) {
 		// error, field is duplicated
