@@ -21,19 +21,17 @@ Dragonfire finished the application 2014 and integrate it with Ze_PilOt.
 1. Extract into a folder which is accessible via your webserver
 
 2. Create two databases from schemas:
-* faf: https://github.com/FAForever/clans/blob/master/model/faf_db_schema.sql
-* clans: https://github.com/FAForever/clans/blob/master/model/fafclans.sql
+* faf_lobby: https://github.com/FAForever/clans/blob/master/model/faf_db_schema.sql
+* fafclans: https://github.com/FAForever/clans/blob/master/model/fafclans.sql
 
 3. Modify index.php to have the correct server address/username/password for the two
  databases (clans and faf). Make sure that user has privileges to access these databases.
-
-4. The Webserver needs to be configured something like the following. (Assuming Apache, adapt as needed for other servers)
 
 ## Planning
 
 * Migrate to Foundation: https://github.com/FAForever/website
 * Use for the View React (+ JQuery): https://facebook.github.io/react/
-* Data Access over FAF API (faftools): https://github.com/FAForever/faftools
+* Data Access over FAF API: https://github.com/FAForever/api
 * Model Framework: https://github.com/orbitjs/orbit.js
 * Cleanup database
 
