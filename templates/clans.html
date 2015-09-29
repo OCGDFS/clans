@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set active_page = "clans" %}
+{% block container %}
+<table id="clanlist" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Tag</th>
+        <th>Leader</th>
+        <th>Members</th>
+      </tr>
+    </thead>
+</table>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $.ajax({
+      url: 'http://127.0.0.1:8080/clans',
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+          var dataSet = []
+          for (var row in data.data) {
+              var clan = data.data[row]
+              dataSet.push([clan.clan_name, clan.clan_tag, clan.clan_founder_id, 0])
+          }
+          $('#clanlist').DataTable({
+              data: dataSet
+          });
+      },
+      error: function(xhr, status, err) {
+          console.error(status);
+      }
+  });
+});
+</script>
+{% endblock %}
