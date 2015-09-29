@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'supcom';
+    src: url('../fonts/zeroes_3.ttf');
+}
+
+@font-face {
+    font-family: Entypo;
+    src: url('../fonts/Entypo.otf');
+}
+
+/*
+body {
+    background-color: #1f1f1f;
+    color: #999;
+}*/
+
+h1 {
+    font-family: 'supcom';
+    /*color: #fff;*/
+}
+
+a {
+    /*color: #666;*/
+}
+
+.navbar-brand {
+  padding-top: 10px;
+}
+
+body { 
+  padding-top: 50px; 
+}
+
+
+
