@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% set active_page = "members" %}
+{% set title = "Clan Members" %}
+{% block container %}
+<table id="memberlist" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Clan Tag</th>
+        <th>Clan Name</th>
+      </tr>
+    </thead>
+</table>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $.ajax({
+      url: 'http://127.0.0.1:8080/clan_members',
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+          var dataSet = []
+          for (var row in data.data) {
+              var member = data.data[row]
+              dataSet.push([member.player_name, member.clan_tag, member.clan_name])
+          }
+          $('#memberlist').DataTable({
+              data: dataSet
+          });
+      },
+      error: function(xhr, status, err) {
+          console.error(status);
+      }
+  });
+});
+</script>
+{% endblock %}

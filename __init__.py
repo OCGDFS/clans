@@ -9,6 +9,10 @@ def index():
 def clans():
     return render_template('clans.html')
 
+@app.route('/members')
+def members():
+    return render_template('members.html')
+
 # TODO: remove this in production mode
 @app.route('/<path:path>')
 def static_file(path):
