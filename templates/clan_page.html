@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% set active_page = "clans" %}
+{% set title = "Clan Page" %}
+{% block container %}
+<div class="well bs-component">
+  <form class="form-horizontal">
+    <fieldset>
+      <div class="form-group">
+        <label for="clan_name" class="col-lg-2 control-label">Name</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="clan_name" placeholder="?">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="clan_tag" class="col-lg-2 control-label">Tag</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="clan_tag" placeholder="?">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="member_count" class="col-lg-2 control-label">Members</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="member_count" placeholder="?">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="leader_name" class="col-lg-2 control-label">Leader</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="leader_name" placeholder="?">
+        </div>
+      </div>
+       <div class="form-group">
+        <label for="founder_name" class="col-lg-2 control-label">Founder</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="founder_name" placeholder="?">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="create_date" class="col-lg-2 control-label">Created at</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="create_date" placeholder="?">
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $.ajax({
+      url: 'http://127.0.0.1:8080/clan/{{ clan_id }}',
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+          var details = ['clan_name', 'clan_tag', 'member_count', 'leader_name', 'founder_name', 'create_date'];
+          if(data.clan_details != undefined) {
+            $('#title').append(": " + data.clan_details[0]['clan_name']);
+            document.title = 'Clan: ' + data.clan_details[0]['clan_name'];
+            for (var row in details) {
+              var field = details[row];
+              $('#' + field).val(data.clan_details[0][field]);
+            }
+          }
+      },
+      error: function(xhr, status, err) {
+          console.error(err);
+      }
+  });
+});
+</script>
+{% endblock %}

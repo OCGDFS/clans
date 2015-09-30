@@ -9,6 +9,7 @@
         <th>Tag</th>
         <th>Leader</th>
         <th>Members</th>
+        <th>Actions</th>
       </tr>
     </thead>
 </table>
@@ -22,9 +23,11 @@ $(document).ready(function() {
       cache: false,
       success: function(data) {
           var dataSet = []
+          
           for (var row in data.data) {
               var clan = data.data[row]
-              dataSet.push([clan.clan_name, clan.clan_tag, clan.leader_name, clan.member_count])
+              var button = '<a href="clan/' + clan.clan_id + '" class="btn btn-primary btn-xs">Open Clanpage</a>';
+              dataSet.push([clan.clan_name, clan.clan_tag, clan.leader_name, clan.member_count, button])
           }
           $('#clanlist').DataTable({
               data: dataSet

@@ -13,6 +13,10 @@ def clans():
 def members():
     return render_template('members.html')
 
+@app.route('/clan/<int:id>')
+def clan(id):
+    return render_template('clan_page.html', clan_id=id)
+
 # TODO: remove this in production mode
 @app.route('/<path:path>')
 def static_file(path):
