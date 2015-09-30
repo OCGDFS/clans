@@ -24,7 +24,7 @@ $(document).ready(function() {
           var dataSet = []
           for (var row in data.data) {
               var clan = data.data[row]
-              dataSet.push([clan.clan_name, clan.clan_tag, clan.clan_founder_id, 0])
+              dataSet.push([clan.clan_name, clan.clan_tag, clan.leader_name, clan.member_count])
           }
           $('#clanlist').DataTable({
               data: dataSet
