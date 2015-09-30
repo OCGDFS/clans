@@ -10,4 +10,4 @@ if sys.version_info.major != 3:
         "Refer to passenger documentation on how to accomplish that.\n"
         "Good luck.")
 
-from app import app  as application
+from app import app as application
