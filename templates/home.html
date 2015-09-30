@@ -1,3 +1,38 @@
 {% extends "layout.html" %}
 {% set active_page = "home" %}
-{% block container %}<h2>News</h2>{% endblock %}
+{% set title = "Home" %}
+{% block container %}
+<div class="jumbotron" id="header">
+  <center>
+    <div class="panel-transparent">
+      <h1>Clan Management</h1>
+      <h2>Forged Alliance Forever</h2>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+      <a href="#" class="btn btn-default btn-lg">
+        <i class="fa fa-plus-circle"></i> Create Clan
+      </a>
+      <a href="#" type="button" class="btn btn-default btn-lg">
+        <i class="fa fa-users"></i> Invite Players
+      </a>
+      <a href="http://www.faforever.com/sample-page/" class="btn btn-default btn-lg">
+        <i class="fa fa-gamepad"></i> Play Together
+      </a>
+    </div>
+  </center> 
+</div>
+{% endblock %}
+{% block js %}
+ <!-- Script to Activate the Carousel -->
+<script src="/js/jquery.bgswitcher.js"></script>
+<script>
+$(document).ready(function() {
+  $('#header').bgswitcher({
+    images: ['/images/spider.jpg', '/images/zar.jpg', '/images/bombers.jpg', '/images/explosion.jpg', '/images/sera.jpg'],
+    interval: 5000 + 5000, 
+    shuffle: true,
+    duration: 5000 // Effect duration
+  })
+});
+</script>
+{% endblock %}
