@@ -16,12 +16,13 @@ def members():
 @app.route('/clan/<int:id>')
 def clan(id):
     return render_template('clan_page.html', clan_id=id)
-
-# TODO: remove this in production mode
-@app.route('/<path:path>')
-def static_file(path):
-    return app.send_static_file(path)
-
+    
 if __name__ == '__main__':
+
+    @app.route('/<path:path>')
+    def static_file(path):
+        return app.send_static_file(path)
+
+
     app.debug = True
     app.run()
