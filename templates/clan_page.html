@@ -8,37 +8,37 @@
       <div class="form-group">
         <label for="clan_name" class="col-lg-2 control-label">Name</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" id="clan_name" placeholder="?">
+          <span class="form-control input-sm col-lg-10" id="clan_name" data-type="text"></span>
         </div>
       </div>
       <div class="form-group">
         <label for="clan_tag" class="col-lg-2 control-label">Tag</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" id="clan_tag" placeholder="?">
+          <span class="form-control input-sm" id="clan_tag" data-type="text"></span>
         </div>
       </div>
       <div class="form-group">
         <label for="member_count" class="col-lg-2 control-label">Members</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" id="member_count" placeholder="?">
+          <span class="form-control input-sm" id="member_count" data-type="text"></span>
         </div>
       </div>
       <div class="form-group">
         <label for="leader_name" class="col-lg-2 control-label">Leader</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" id="leader_name" placeholder="?">
+          <span class="form-control input-sm" id="leader_name" data-type="text"></span>
         </div>
       </div>
        <div class="form-group">
         <label for="founder_name" class="col-lg-2 control-label">Founder</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" id="founder_name" placeholder="?">
+          <span class="form-control input-sm" id="founder_name" data-type="text"></span>
         </div>
       </div>
       <div class="form-group">
         <label for="create_date" class="col-lg-2 control-label">Created at</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" id="create_date" placeholder="?">
+          <span class="form-control input-sm" id="create_date" data-type="text"></span>
         </div>
       </div>
     </fieldset>
@@ -57,9 +57,12 @@ $(document).ready(function() {
           if(data.clan_details != undefined) {
             $('#title').append(": " + data.clan_details[0]['clan_name']);
             document.title = 'Clan: ' + data.clan_details[0]['clan_name'];
+            $.fn.editable.defaults.mode = 'inline';
+
             for (var row in details) {
               var field = details[row];
-              $('#' + field).val(data.clan_details[0][field]);
+              $('#' + field).html(data.clan_details[0][field]);
+              $('#' + field).editable();
             }
           }
       },
