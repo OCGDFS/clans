@@ -8,19 +8,13 @@
     src: url('../fonts/Entypo.otf');
 }
 
-/*
-body {
-    background-color: #1f1f1f;
-    color: #999;
-}*/
 
 h1 {
     font-family: 'supcom';
-    /*color: #fff;*/
 }
 
 a {
-    /*color: #666;*/
+    color: #666;
 }
 
 .navbar-brand {
@@ -32,4 +26,26 @@ body {
 }
 
 
+.pagination>.active>a, 
+.pagination>.active>span, 
+.pagination>.active>a:hover, 
+.pagination>.active>span:hover,
+.pagination>.active>a:focus, 
+.pagination>.active>span:focus {
+    background-color: #444;
+}
 
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus{
+    background-color: #333;
+}
+
+.pagination>li>a:hover,
+.pagination>li>span:hover, 
+.pagination>li>a:focus, 
+.pagination>li>span:focus,
+.navbar-default .navbar-nav li:hover, 
+.navbar-default .navbar-nav li:focus {
+   background-color: #666;
+}
