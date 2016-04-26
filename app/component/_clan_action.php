@@ -45,7 +45,7 @@ class _Clan_Action extends \App\Controller {
 	        // check if new leader is in the clan
 	        $members = new \Model\Clan_Member($db);
 	        if($clan_id !== $members->get_clan_membership($new_leader)) {
-	        	echo 'new leader it not in this clan';
+	        	echo 'new leader is not in this clan';
 	        	die();
 	        }
 	        // check if you are the current leader
